@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+permissions:
+  packages: write
+
 jobs:
   # define job to build and publish docker image
   build-and-push-docker-image:
