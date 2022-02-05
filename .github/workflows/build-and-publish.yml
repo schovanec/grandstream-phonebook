@@ -25,8 +25,9 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ghcr.io/schovanec/grandstream-phonebook-update
-          tags: type=ref,event=branch
-            type=sha,prefix={{branc}}-
+          tags: |
+            type=ref,event=branch
+            type=sha,prefix={{branch}}-
 
       # setup Docker buld action
       - name: Set up Docker Buildx
