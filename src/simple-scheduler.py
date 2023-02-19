@@ -18,9 +18,10 @@ exec_cmd = sys.argv[2:]
 while True:
   # sleep until the next scheduled run time
   when = schedule.next()
-  print(f'Sleeping until {when.isoformat()}')
   sleep_time = (when - datetime.now()).total_seconds()
-  time.sleep(sleep_time)
+  if (sleep_time > 0):
+    print(f'Sleeping until {when.isoformat()}')
+    time.sleep(sleep_time)
 
   # execute the task
   try:
