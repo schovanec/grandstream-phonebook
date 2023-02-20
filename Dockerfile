@@ -7,5 +7,6 @@ WORKDIR /scripts
 COPY src/ ./
 
 ENV PATH /scripts:$PATH
+ENV PYTHONUNBUFFERED true
 
 ENTRYPOINT ["./run.sh"]
