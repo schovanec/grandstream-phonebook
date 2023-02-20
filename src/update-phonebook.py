@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3 -u
 
 #
 # Generates a phone book compatible with Grandstream DP750 from

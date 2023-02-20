@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3 -u
+
 #
 # Usage:
 #   simple-scheduler.py <cron expression> <command>
