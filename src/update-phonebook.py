@@ -143,7 +143,7 @@ for file in input_files_after:
         try:
             cards.append(vobject.readOne(file_stream))
         except:
-            printf(f' - Error reading {file}')
+            print(f' - Error reading {file}')
             raise
 
 print(f' - {len(cards)} contacts found')
