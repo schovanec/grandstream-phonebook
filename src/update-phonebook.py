@@ -46,7 +46,7 @@ def FindPhoneNumbers(card):
     result = {}
 
     if 'tel' in item.contents:
-        numbers = [(t.value, [x.upper() for x in t.params['TYPE']]) for t in item.contents['tel'] if 'TYPE' in t.params]
+        numbers = [(t.value, [x.upper() for x in t.params['TYPE']] if 'TYPE' in t.params else []) for t in item.contents['tel']]
         numbers = [(n, t) for (n, t) in numbers if ValidPhoneNumber(n) and 'VOICE' in t or 'MAIN' in t]
 
         for (num, types) in numbers:
