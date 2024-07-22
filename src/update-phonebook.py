@@ -46,7 +46,7 @@ def FindPhoneNumbers(card):
     result = {}
 
     if 'tel' in item.contents:
-        numbers = [(t.value, [x.upper() for x in t.params['TYPE']]) for t in item.contents['tel']]
+        numbers = [(t.value, [x.upper() for x in t.params['TYPE']]) for t in item.contents['tel'] and 'TYPE' in t]
         numbers = [(n, t) for (n, t) in numbers if ValidPhoneNumber(n) and 'VOICE' in t or 'MAIN' in t]
 
         for (num, types) in numbers:
@@ -163,7 +163,7 @@ if output_base_path.exists():
     except:
         print(f'   Ignoring base phone book due to error: {sys.exc_info()[1]}')
 
-if not book:
+if book is None:
     book = ET.Element("AddressBook")
 
 # Generate contact details
