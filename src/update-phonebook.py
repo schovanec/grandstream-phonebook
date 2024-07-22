@@ -140,7 +140,11 @@ print('Loading contact files')
 cards = []
 for file in input_files_after:
     with file.open('r') as file_stream:
-        cards.append(vobject.readOne(file_stream))
+        try:
+            cards.append(vobject.readOne(file_stream))
+        except:
+            printf(f' - Error reading {file}')
+            raise
 
 print(f' - {len(cards)} contacts found')
 
